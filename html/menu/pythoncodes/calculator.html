@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #282c34;
+            color: #61dafb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .calculator-container {
+            background-color: #1c1e24;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+            text-align: center;
+            width: 600px; /* Increased width */
+            overflow-x: auto; /* Horizontal scroll for overflow */
+        }
+        .logo {
+            font-size: 12px;
+            margin-bottom: 20px;
+            color: #a3a3a3;
+            white-space: pre-wrap;
+            line-height: 1.2;
+            text-align: left;
+            overflow-x: auto; /* Horizontal scroll for ASCII art */
+        }
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #61dafb;
+            background-color: #282c34;
+            color: #fff;
+            font-size: 18px;
+        }
+        .operations {
+            margin-bottom: 10px;
+        }
+        .operations button {
+            background-color: #282c34;
+            border: 1px solid #61dafb;
+            color: #fff;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            margin: 5px;
+            cursor: pointer;
+            width: 60px;
+        }
+        .operations button:hover {
+            background-color: #61dafb;
+            color: #282c34;
+        }
+        .result {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .action-buttons button {
+            background-color: #61dafb;
+            color: #282c34;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .action-buttons button:hover {
+            background-color: #282c34;
+            color: #61dafb;
+            border: 1px solid #61dafb;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="logo">
+            <pre>
+ ___________________________
+|  _____________________  |
+| | Pythonista       0. | |  .----------------.  .----------------.  .----------------.  .----------------.
+| |_____________________| | | .--------------. || .--------------. || .--------------. || .--------------. |
+|  ___ ___ ___   ___  | | |     ______   | || |      __      | || |   _____      | || |     ______   | |
+| | 7 | 8 | 9 | | + | | | |   .' ___  |  | || |     /  \     | || |  |_   _|     | || |   .' ___  |  | |
+| |___|___|___| |___| | |  / .'   \_|  | || |    / /\ \    | || |    | |       | || |  / .'   \_|  | |
+| | 4 | 5 | 6 | | - | | |  | |         | || |   / ____ \   | || |    | |   _   | || |  | |         | |
+| |___|___|___| |___| | |  \ `.___.'\  | || | _/ /    \ \_ | || |   _| |__/ |  | || |  \ `.___.'\  | |
+| | 1 | 2 | 3 | | x | | |   `._____.'  | || ||____|  |____|| || |  |________|  | || |   `._____.'  | |
+| |___|___|___| |___| | |              | || |              | || |              | || |              | |
+| | . | 0 | = | | / | | '--------------' || '--------------' || '--------------' || '--------------' |
+| |___|___|___| |___| |  '----------------'  '----------------'  '----------------'  '----------------'
+|_______________________|
+            </pre>
+        </div>
+        <input type="number" id="num1" placeholder="What's the first number?" step="any">
+        <div class="operations">
+            <button onclick="setOperation('+')">+</button>
+            <button onclick="setOperation('-')">-</button>
+            <button onclick="setOperation('*')">*</button>
+            <button onclick="setOperation('/')">/</button>
+        </div>
+        <input type="number" id="num2" placeholder="What's the next number?" step="any">
+        <div class="result" id="result"></div>
+        <div class="action-buttons">
+            <button onclick="calculate()">Calculate</button>
+            <button onclick="resetCalculator()">New Calculation</button>
+        </div>
+    </div>
+
+    <script>
+        let operation = "";
+
+        function setOperation(op) {
+            operation = op;
+        }
+
+        function calculate() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            let result;
+
+            switch (operation) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    break;
+                default:
+                    result = "Please select an operation";
+            }
+
+            document.getElementById('result').innerText = `${num1} ${operation} ${num2} = ${result}`;
+        }
+
+        function resetCalculator() {
+            document.getElementById('num1').value = '';
+            document.getElementById('num2').value = '';
+            document.getElementById('result').innerText = '';
+            operation = '';
+        }
+    </script>
+</body>
+</html>
+
+

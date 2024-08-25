@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f7f9fc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .game-container {
+            margin: 50px auto;
+            padding: 20px;
+            max-width: 500px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+        }
+        .rounds button, .start-game button {
+            cursor: pointer;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: #fff;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+        .rounds button:hover, .start-game button:hover {
+            background-color: #2980b9;
+        }
+        .choices .choice {
+            cursor: pointer;
+            padding: 15px 30px;
+            margin: 10px;
+            border: 2px solid #3498db;
+            display: inline-block;
+            border-radius: 5px;
+            background-color: #ecf0f1;
+            font-size: 18px;
+            color: #2c3e50;
+            transition: background-color 0.3s ease;
+        }
+        .choices .choice:hover {
+            background-color: #bdc3c7;
+        }
+        .ascii-art {
+            font-family: monospace;
+            margin: 20px 0;
+            white-space: pre;
+            font-size: 14px;
+            line-height: 1.2em;
+            color: #e74c3c;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #27ae60;
+        }
+        .final-result {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #c0392b;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Rock Paper Scissors</h1>
+        <div class="start-game">
+            <button onclick="showRounds()">Want to Play?</button>
+        </div>
+        <div class="rounds hidden" id="rounds">
+            <button onclick="startGame(3)">Best of 3</button>
+            <button onclick="startGame(5)">Best of 5</button>
+        </div>
+        <div class="choices hidden" id="choices">
+            <div class="choice" onclick="playGame(0)">Rock</div>
+            <div class="choice" onclick="playGame(1)">Paper</div>
+            <div class="choice" onclick="playGame(2)">Scissors</div>
+        </div>
+        <div class="ascii-art" id="userChoiceAscii"></div>
+        <div class="ascii-art" id="computerChoiceAscii"></div>
+        <div class="result" id="result"></div>
+        <div class="final-result" id="finalResult"></div>
+    </div>
+
+    <script>
+        const asciiArt = [
+            `
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+`,
+            `
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+`,
+            `
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+`
+        ];
+
+        let userScore = 0;
+        let computerScore = 0;
+        let rounds = 0;
+        let totalRounds = 0;
+
+        function showRounds() {
+            document.querySelector('.start-game').classList.add('hidden');
+            document.getElementById('rounds').classList.remove('hidden');
+        }
+
+        function startGame(roundCount) {
+            userScore = 0;
+            computerScore = 0;
+            rounds = 0;
+            totalRounds = roundCount;
+            document.getElementById('result').innerText = '';
+            document.getElementById('finalResult').innerText = '';
+            document.getElementById('userChoiceAscii').innerText = '';
+            document.getElementById('computerChoiceAscii').innerText = '';
+            document.getElementById('rounds').classList.add('hidden');
+            document.getElementById('choices').classList.remove('hidden');
+        }
+
+        function playGame(userChoice) {
+            if (rounds >= totalRounds) {
+                alert("Game over! Please start a new game.");
+                return;
+            }
+
+            const computerChoice = Math.floor(Math.random() * 3);
+
+            // Display ASCII Art
+            document.getElementById('userChoiceAscii').innerText = "You chose:\n" + asciiArt[userChoice];
+            document.getElementById('computerChoiceAscii').innerText = "Computer chose:\n" + asciiArt[computerChoice];
+
+            let result = "";
+
+            if (userChoice === computerChoice) {
+                result = "It's a draw.";
+            } else if ((userChoice === 0 && computerChoice === 2) ||
+                       (userChoice === 1 && computerChoice === 0) ||
+                       (userChoice === 2 && computerChoice === 1)) {
+                result = "You win!";
+                userScore++;
+            } else {
+                result = "You lose.";
+                computerScore++;
+            }
+
+            rounds++;
+            document.getElementById('result').innerText = `Round ${rounds}: ${result}`;
+
+            if (rounds === totalRounds) {
+                let finalResult = `Final Score - You: ${userScore}, Computer: ${computerScore}. `;
+                if (userScore > computerScore) {
+                    finalResult += "You are the overall winner!";
+                } else if (computerScore > userScore) {
+                    finalResult += "Computer is the overall winner!";
+                } else {
+                    finalResult += "It's a tie!";
+                }
+                document.getElementById('finalResult').innerText = finalResult;
+
+                setTimeout(() => {
+                    if (confirm("Do you want to play again?")) {
+                        document.getElementById('choices').classList.add('hidden');
+                        showRounds();
+                    }
+                }, 500);
+            }
+        }
+    </script>
+</body>
+</html>
+

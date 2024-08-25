@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+    <link rel="stylesheet" href="hangman.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>Hangman Game</h1>
+        <div id="logo">
+            <pre>
+                
+                _                                             
+| |                                            
+| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
+| '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ 
+| | | | (_| | | | | (_| | | | | | | (_| | | | |
+|_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
+                    __/ |                      
+                   |___/    
+            </pre>
+        </div>
+        <p id="display-word">_ _ _ _ _</p>
+        <p id="lives">Lives: 6</p>
+        <p id="guessed-letters">Guessed Letters: </p>
+        <input type="text" id="guess-input" maxlength="1" placeholder="Guess a letter">
+        <button id="guess-button">Guess</button>
+        <p id="message"></p>
+        <p id="hangman-art">
+            <!-- Hangman stages art here -->
+        </p>
+        <button id="restart-button">Restart Game</button>
+    </div>
+    <script src="hangman.js"></script>
+</body>
+</html>
+
