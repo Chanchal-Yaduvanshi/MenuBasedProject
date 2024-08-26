@@ -4,8 +4,6 @@ Welcome to the **Automated Menu-Driven Application** repository! This project wa
 
 ---
 
-![Project Overview](https://via.placeholder.com/800x300.png?text=Project+Overview)
-
 ## 🎯 Purpose
 
 The purpose of this project is to provide a comprehensive and automated solution for managing tasks related to cloud services, containerization, and scripting. The application is designed to simplify complex operations by offering a streamlined, menu-driven interface.
@@ -13,8 +11,6 @@ The purpose of this project is to provide a comprehensive and automated solution
 ---
 
 ## 💻 Technologies Implemented
-
-![Technologies](https://via.placeholder.com/800x300.png?text=Technologies+Used)
 
 - **AWS:** Automated cloud operations like IAM user creation, EC2 instance management, S3 bucket handling, and SNS services.
 - **Docker:** Implemented containerization to ensure consistent environments across different stages of deployment.
@@ -25,8 +21,6 @@ The purpose of this project is to provide a comprehensive and automated solution
 ---
 
 ## 🌟 Project Highlights
-
-![Project Highlights](https://via.placeholder.com/800x300.png?text=Project+Highlights)
 
 - **AWS Automation:** Simplified tasks such as "Create IAM User," "Launch Instance," "Get Instance Log," and "Manage S3 Bucket."
 - **Docker Automation:** Integrated Docker operations directly into the menu for efficient container management.
@@ -51,12 +45,6 @@ The purpose of this project is to provide a comprehensive and automated solution
 
 ---
 
-## 📷 Screenshots
-
-![Screenshot](https://via.placeholder.com/800x300.png?text=Screenshot+1)
-
----
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
@@ -75,8 +63,6 @@ For any inquiries or suggestions, feel free to reach out!
 
 ---
 
-**[View the Project](https://github.com/yourusername/MENU-PROJECT)** | **[LinkedIn](https://www.linkedin.com/in/yourprofile/)**
+**[View the Project](https://chanchal-yaduvanshi.github.io/MenuBasedProject/html/)** | **[LinkedIn](https://www.linkedin.com/in/chanchal-yaduvanshi-8900b0266/)**
 
----
 
-*Note: Replace the placeholder images with actual screenshots from your project, and update the GitHub and LinkedIn links accordingly.*
