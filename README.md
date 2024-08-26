@@ -32,7 +32,7 @@ The purpose of this project is to provide a comprehensive and automated solution
 
 1. **Clone the repository:**
    ```bash
-   git clone [(https://github.com/Chanchal-Yaduvanshi/MenuBasedProject)]
+   git clone https://github.com/Chanchal-Yaduvanshi/MenuBasedProject
    ```
 2. **Navigate to the project directory:**
    ```bash
