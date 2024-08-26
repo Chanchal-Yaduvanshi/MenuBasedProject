@@ -1,4 +1,4 @@
-🌟 Automated Menu-Driven Application
+## 🌟 Automated Menu-Driven Application
 
 Welcome to the **Automated Menu-Driven Application** repository! This project was developed as part of my summer internship at LinuxWorld Informatics Pvt Ltd. The goal was to create a versatile, user-friendly application that integrates multiple technologies to automate a variety of tasks.
 
@@ -36,24 +36,24 @@ The purpose of this project is to provide a comprehensive and automated solution
    ```
 2. **Navigate to the project directory:**
    ```bash
-   cd MENU-PROJECT
+   cd MenuBasedProject
    ```
-3. **Run the application:**
-   ```bash
-   python3 app.py
-   ```
+3. **Explore the project structure:**
+   - All frontend code is located in the **`html`** folder.
+   - All backend CGI scripts can be found in the **`cgi-bin`** folder.
+
+4. **Run the application:**
+   - **On AWS Cloud or Linux System:**
+     - Deploy the project files to your server and access the application via the web.
+     - All frontend files at /var/www/html/ directory and all backend files at /var/www/cgi-bin/
+   - **On Your Local System (Windows):**
+     - You can run the CGI scripts locally by setting up your environment. For more details on running CGI scripts in Windows, check out this guide: [How to Run a CGI Script in Windows](https://stepofweb.com/how-do-i-run-a-cgi-script-in-windows/).
 
 ---
 
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
----
-
-## 📝 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ---
 
